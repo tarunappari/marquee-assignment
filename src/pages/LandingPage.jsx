@@ -128,6 +128,7 @@ export default LandingPage;
 let LandingPageContainer = styled.div`
     min-height: 100vh;
     max-height: auto;
+    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 6% 94%;
