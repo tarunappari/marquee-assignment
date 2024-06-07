@@ -7,10 +7,14 @@ const BookShelf = () => {
     const [bookshelf, setBookshelf] = useState([]);
 
     useEffect(() => {
+        //here we are taking the books which are added by the user if there is any else we are giving empty array 
+        //and setting them in the state
         const savedBooks = JSON.parse(localStorage.getItem('bookshelf')) || [];
         setBookshelf(savedBooks);
     }, []);
 
+    //here we are removing the book from bookshelf on clicking remove button by comparing with title and setting the 
+    //updated books in the localstorage
     const removeFromBookshelf = (bookToRemove) => {
         const updatedBookshelf = bookshelf.filter(book => book.title !== bookToRemove.title);
         setBookshelf(updatedBookshelf);

@@ -15,6 +15,7 @@ const LandingPage = () => {
 
     let navigate = useNavigate()
 
+    //in this asynchronous func we are fetching the books from api using axios on the info that given by the user
     async function searchForBooks() {
         setSearchDone(true)
         setLoading(true)
@@ -36,16 +37,21 @@ const LandingPage = () => {
         setLoading(false)
     }
 
+    //on clicking on the enter button we are performing our search in this func
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             searchForBooks();
         }
     };
 
+    //when user clicks search button then this func triggers and calls to the searchBooks func
     const handleButtonClick = () => {
         searchForBooks();
     };
 
+    //whenever user clicks on the add to shelf button this func triggers and add that book to the localstorage
+    //first we take the saved books from localstrage if there were any then updates them with new book then setting up them in localstoarge again
+    //at last we are updating the books state by filtering out the books that were added to shelf
     const addToBookshelf = (book) => {
         const bookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
         const updatedBookshelf = [...bookshelf, book];
@@ -53,6 +59,7 @@ const LandingPage = () => {
         setBooks(books.filter(b => b.title !== book.title)); // Remove the added book from the list
     };
 
+    //this func is used to check whether the book is present in the bookshelf or not
     const isBookInBookshelf = (book) => {
         const bookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
         return bookshelf.some(b => b.title === book.title);
