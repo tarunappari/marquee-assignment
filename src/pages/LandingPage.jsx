@@ -128,14 +128,17 @@ export default LandingPage;
 let LandingPageContainer = styled.div`
     min-height: 100vh;
     max-height: auto;
-    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 9% 91%;
+    grid-template-rows: 6% 94%;
     .input-container{
         display: flex;
         justify-content: space-around;
         align-items: center;
+        position: sticky;
+        background-color:#000000;
+        top: 0rem;
+        box-shadow: 1px 1px 10px #222222;
         input{
             padding: 0.6rem 1.5rem;
             min-width: 70%;
